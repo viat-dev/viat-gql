@@ -135,7 +135,7 @@ what it always was. SQLite is behind the `sqlite` cargo feature, MySQL behind
 `mysql`.
 
 ```toml
-viat-gql = { version = "0.27", features = ["sqlite", "mysql"] }
+viat-gql = { version = "1.0", features = ["sqlite", "mysql"] }
 ```
 
 ```rust
