@@ -3,6 +3,15 @@
 Notable changes per release. Versions before 0.13.0 are reconstructed from the
 release commits; entries from 0.13.0 on are written as the work lands.
 
+## 1.0.1 — 2026-11-02
+
+### Fixed
+
+- The README shipped with 1.0.0 pointed its dependency example at
+  `0.27`; it now says `1.0`. The crate page on crates.io carries the
+  README, so this is visible to anyone copying the snippet. No code
+  change.
+
 ## 1.0.0 — 2026-11-02
 
 ### Changed
