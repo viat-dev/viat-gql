@@ -11,8 +11,8 @@
 //!   `_by_pk` available.
 
 use serde_json::Value;
-use vision_graphql::schema::Schema;
-use vision_graphql::Engine;
+use viat_gql::schema::Schema;
+use viat_gql::Engine;
 
 mod common;
 

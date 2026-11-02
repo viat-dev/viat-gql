@@ -13,8 +13,8 @@
 //! that happens to hit that query.
 //!
 //! ```no_run
-//! # use vision_graphql::{Engine, persisted::QueryRegistry};
-//! # async fn f(engine: Engine) -> vision_graphql::error::Result<()> {
+//! # use viat_gql::{Engine, persisted::QueryRegistry};
+//! # async fn f(engine: Engine) -> viat_gql::error::Result<()> {
 //! // once, at startup — a failure here names the key that failed
 //! let registry = QueryRegistry::compile_all(
 //!     &engine,

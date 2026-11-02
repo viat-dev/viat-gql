@@ -2,9 +2,9 @@
 //! zone-less time at a bind, projection, or pagination boundary.
 
 use serde_json::{json, Value};
-use vision_graphql::ast::OrderDir;
-use vision_graphql::schema::ColumnType;
-use vision_graphql::{Engine, Query};
+use viat_gql::ast::OrderDir;
+use viat_gql::schema::ColumnType;
+use viat_gql::{Engine, Query};
 
 mod common;
 
@@ -21,7 +21,7 @@ async fn setup() -> (Engine, common::TestDb) {
     .execute(&db.pool)
     .await
     .unwrap();
-    let schema = vision_graphql::Schema::introspect(&db.pool)
+    let schema = viat_gql::Schema::introspect(&db.pool)
         .await
         .unwrap()
         .build();
@@ -82,7 +82,7 @@ async fn timetz_introspection_includes_views_and_publishes_its_own_scalar() {
     .execute(&db.pool)
     .await
     .unwrap();
-    let introspected = vision_graphql::schema::introspect::introspect(&db.pool)
+    let introspected = viat_gql::schema::introspect::introspect(&db.pool)
         .await
         .unwrap();
     assert!(introspected.skipped_columns.is_empty());
@@ -94,12 +94,12 @@ async fn timetz_introspection_includes_views_and_publishes_its_own_scalar() {
             .unwrap();
         assert_eq!(column.ty, ColumnType::TimeTz);
     }
-    let schema = vision_graphql::Schema::introspect(&db.pool)
+    let schema = viat_gql::Schema::introspect(&db.pool)
         .await
         .unwrap()
         .build();
-    let ts = vision_graphql::type_system::TypeSystem::build(&schema);
-    let sdl = vision_graphql::sdl::render(&ts);
+    let ts = viat_gql::type_system::TypeSystem::build(&schema);
+    let sdl = viat_gql::sdl::render(&ts);
     assert!(sdl.contains("scalar timetz\n"), "{sdl}");
     assert!(sdl.contains("starts_at: timetz"), "{sdl}");
     assert!(sdl.contains("input timetz_comparison_exp"), "{sdl}");

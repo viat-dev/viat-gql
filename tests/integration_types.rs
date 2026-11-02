@@ -3,8 +3,8 @@
 //! explicit casts so the server converts them.
 
 use serde_json::json;
-use vision_graphql::schema::{ColumnType, Schema, Table};
-use vision_graphql::Engine;
+use viat_gql::schema::{ColumnType, Schema, Table};
+use viat_gql::Engine;
 
 mod common;
 
@@ -262,13 +262,10 @@ async fn smallint_and_char_are_readable_and_writable() {
     .await
     .unwrap();
 
-    let introspected = vision_graphql::Schema::introspect(&pool).await.unwrap();
-    let engine = vision_graphql::Engine::new(
+    let introspected = viat_gql::Schema::introspect(&pool).await.unwrap();
+    let engine = viat_gql::Engine::new(
         pool.clone(),
-        vision_graphql::Schema::introspect(&pool)
-            .await
-            .unwrap()
-            .build(),
+        viat_gql::Schema::introspect(&pool).await.unwrap().build(),
     );
     let _ = introspected;
 
@@ -327,7 +324,7 @@ async fn smallint_and_char_are_readable_and_writable() {
 }
 
 /// A type with no mapping is still dropped — but it is recorded now, so
-/// `vision-gql diff` can say so instead of leaving the hole invisible.
+/// `viat-gql diff` can say so instead of leaving the hole invisible.
 #[tokio::test]
 async fn an_unmappable_column_is_recorded_rather_than_only_logged() {
     let db = common::fresh_db().await;
@@ -339,7 +336,7 @@ async fn an_unmappable_column_is_recorded_rather_than_only_logged() {
     .await
     .unwrap();
 
-    let db = vision_graphql::schema::introspect::introspect(&pool)
+    let db = viat_gql::schema::introspect::introspect(&pool)
         .await
         .unwrap();
     let mut skipped: Vec<(&str, &str)> = db
@@ -374,12 +371,9 @@ async fn numeric_accepts_the_json_numbers_it_returns() {
     .execute(&pool)
     .await
     .unwrap();
-    let engine = vision_graphql::Engine::new(
+    let engine = viat_gql::Engine::new(
         pool.clone(),
-        vision_graphql::Schema::introspect(&pool)
-            .await
-            .unwrap()
-            .build(),
+        viat_gql::Schema::introspect(&pool).await.unwrap().build(),
     );
 
     let v = engine

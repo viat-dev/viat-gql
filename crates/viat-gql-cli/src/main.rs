@@ -14,11 +14,7 @@ use clap::{ArgAction, Args as ClapArgs, Parser, Subcommand};
 use std::path::PathBuf;
 
 #[derive(Parser, Debug)]
-#[command(
-    name = "vision-gql",
-    version,
-    about = "vision-graphql schema overlay tool"
-)]
+#[command(name = "viat-gql", version, about = "viat-gql schema overlay tool")]
 struct Cli {
     #[command(subcommand)]
     cmd: Cmd,

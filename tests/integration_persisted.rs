@@ -1,6 +1,6 @@
 use serde_json::json;
-use vision_graphql::predicate::{col, principal, Principal};
-use vision_graphql::{Engine, QueryRegistry, Schema, ScopePolicy};
+use viat_gql::predicate::{col, principal, Principal};
+use viat_gql::{Engine, QueryRegistry, Schema, ScopePolicy};
 
 mod common;
 

@@ -3,12 +3,12 @@
 //! (resolve the parameters), plus the parse cache's share of the former.
 
 use criterion::{criterion_group, criterion_main, Criterion};
-use vision_graphql::parse_cache::ParseCache;
-use vision_graphql::parser::{lower, lower_with, parse_document, Bindings};
-use vision_graphql::schema::{ColumnType, Relation, Schema, Table};
-use vision_graphql::sql::{render, render_now};
-use vision_graphql::types::{resolve_binds, Inputs};
-use vision_graphql::Dialect;
+use viat_gql::parse_cache::ParseCache;
+use viat_gql::parser::{lower, lower_with, parse_document, Bindings};
+use viat_gql::schema::{ColumnType, Relation, Schema, Table};
+use viat_gql::sql::{render, render_now};
+use viat_gql::types::{resolve_binds, Inputs};
+use viat_gql::Dialect;
 
 fn sample_schema() -> Schema {
     Schema::builder()

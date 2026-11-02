@@ -1,4 +1,4 @@
-use vision_graphql::{Engine, Schema};
+use viat_gql::{Engine, Schema};
 
 mod common;
 

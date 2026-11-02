@@ -9,9 +9,9 @@
 //! that the page is the same page under every argument that decides it.
 
 use serde_json::{json, Value};
-use vision_graphql::ast::{BoolExpr, CmpOp};
-use vision_graphql::schema::{ColumnType, Relation, Schema, Table};
-use vision_graphql::{Engine, ScopeSet};
+use viat_gql::ast::{BoolExpr, CmpOp};
+use viat_gql::schema::{ColumnType, Relation, Schema, Table};
+use viat_gql::{Engine, ScopeSet};
 
 mod common;
 

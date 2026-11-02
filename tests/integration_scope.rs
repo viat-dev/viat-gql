@@ -5,12 +5,10 @@
 //! users ←(user_id) orders ←(order_id) samples, plus a public lookup table.
 
 use serde_json::{json, Value};
-use vision_graphql::ast::{BoolExpr, CmpOp};
-use vision_graphql::predicate::{
-    and, col, constant, not, or, param, principal, rel, typed, Principal,
-};
-use vision_graphql::schema::{ColumnType, Relation, Schema, Table};
-use vision_graphql::{Engine, Error, Mutation, Query, ScopePolicy, ScopeSet};
+use viat_gql::ast::{BoolExpr, CmpOp};
+use viat_gql::predicate::{and, col, constant, not, or, param, principal, rel, typed, Principal};
+use viat_gql::schema::{ColumnType, Relation, Schema, Table};
+use viat_gql::{Engine, Error, Mutation, Query, ScopePolicy, ScopeSet};
 
 mod common;
 
@@ -962,8 +960,8 @@ async fn ordering_through_restricted_relation_cannot_see_out_of_scope_rows() {
 /// hold on the compiled path too — which is the one a scoped endpoint uses.
 #[tokio::test]
 async fn column_scope_holds_on_both_paths() {
-    use vision_graphql::predicate::{col, principal, Principal};
-    use vision_graphql::ScopePolicy;
+    use viat_gql::predicate::{col, principal, Principal};
+    use viat_gql::ScopePolicy;
 
     let db = common::fresh_db().await;
     let pool = db.pool.clone();

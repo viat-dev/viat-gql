@@ -1,15 +1,15 @@
 [workspace]
-members = [".", "crates/vision-graphql-cli"]
+members = [".", "crates/viat-gql-cli"]
 
 [package]
-name = "vision-graphql"
+name = "viat-gql"
 version = "0.28.0"
 edition = "2021"
 description = "Hasura-style GraphQL-to-SQL query engine for PostgreSQL, SQLite and MySQL — one SQL per request via JSON aggregation."
 license = "MIT OR Apache-2.0"
-repository = "https://github.com/oonxt/vision-graphql"
-homepage = "https://github.com/oonxt/vision-graphql"
-documentation = "https://docs.rs/vision-graphql"
+repository = "https://github.com/viat-dev/viat-gql"
+homepage = "https://viat.dev"
+documentation = "https://docs.rs/viat-gql"
 readme = "README.md"
 keywords = ["graphql", "orm", "postgres", "mysql", "sqlite"]
 categories = ["database", "api-bindings"]

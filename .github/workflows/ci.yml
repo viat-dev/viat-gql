@@ -58,13 +58,13 @@ jobs:
       # something no consumer of the crate is affected by.
       - name: Library and binary build on the declared MSRV
         run: |
-          cargo check -p vision-graphql --lib
-          cargo check -p vision-graphql --lib --all-features
-          cargo check -p vision-graphql-cli --bins
+          cargo check -p viat-gql --lib
+          cargo check -p viat-gql --lib --all-features
+          cargo check -p viat-gql-cli --bins
       - name: Both crates declare the same MSRV
         run: |
           lib=$(grep -m1 '^rust-version' Cargo.toml | cut -d'"' -f2)
-          cli=$(grep -m1 '^rust-version' crates/vision-graphql-cli/Cargo.toml | cut -d'"' -f2)
+          cli=$(grep -m1 '^rust-version' crates/viat-gql-cli/Cargo.toml | cut -d'"' -f2)
           test "$lib" = "$cli" || { echo "MSRV mismatch: lib $lib, cli $cli"; exit 1; }
 
   test:
