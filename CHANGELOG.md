@@ -3,6 +3,23 @@
 Notable changes per release. Versions before 0.13.0 are reconstructed from the
 release commits; entries from 0.13.0 on are written as the work lands.
 
+## 1.0.0 — 2026-11-02
+
+### Changed
+
+- **The project is renamed `vision-graphql` → `viat-gql` and lives at
+  [viat-dev/viat-gql](https://github.com/viat-dev/viat-gql) (homepage:
+  [viat.dev](https://viat.dev)).** The library crate is `viat-gql` (imports:
+  `use viat_gql::…`), the CLI package is `viat-gql-cli` and installs a
+  `viat-gql` binary. To upgrade from `vision-graphql` 0.28, swap the
+  dependency name and the imports — 1.0.0 is 0.28.0 under the new name, with
+  no functional change.
+- SQL generated for windowed paging and key reordering now uses
+  `__viat_gql_*` internal column aliases (was `__vision_graphql_*`). They are
+  engine-internal and not part of any contract, noted here only because a
+  `WHERE` written against the old spellings would now miss.
+- MIT copyright is assigned to `viat.dev`.
+
 ## 0.28.0 — 2026-10-27
 
 ### Fixed
