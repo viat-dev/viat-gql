@@ -9,9 +9,12 @@ description = "CLI to generate and validate viat-gql schema overlays."
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/viat-dev/viat-gql"
 
+# `doc = false`: this bin and the lib `viat_gql` both normalise to
+# `target/doc/viat_gql/index.html`, and `cargo doc` refuses the collision.
 [[bin]]
 name = "viat-gql"
 path = "src/main.rs"
+doc = false
 
 [features]
 default = ["mysql"]
